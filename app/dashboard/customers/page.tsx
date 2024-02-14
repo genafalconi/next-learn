@@ -7,6 +7,7 @@ import { Suspense } from 'react';
 import { fetchCustomers, fetchCustomersPages, fetchFilteredCustomers } from '@/app/lib/data';
 import { Metadata } from 'next';
 import Pagination from '@/app/ui/invoices/pagination';
+import { CreateCustomer } from '@/app/ui/customers/buttons';
 
 export const metadata: Metadata = {
   title: 'Customers',
@@ -31,7 +32,7 @@ export default async function Page({
       </div>
       <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
         <Search placeholder="Search customers..." />
-        <CreateInvoice />
+        <CreateCustomer />
       </div>
       <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
         <Table query={query} currentPage={currentPage} />
